@@ -1,0 +1,7 @@
+package io.javabrains.springbootstarter.hello;
+
+
+@RestController
+public class HelloController {
+
+}

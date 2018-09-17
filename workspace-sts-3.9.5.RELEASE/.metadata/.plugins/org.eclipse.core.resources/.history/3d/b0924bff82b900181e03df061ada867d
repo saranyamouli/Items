@@ -1,0 +1,26 @@
+package io.javabrains.springbootstarter.items;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import io.javabrains.springbootstarter.topic.Topic;
+
+@Service
+public class ItemsService {
+	
+	List<Topic> item =  new ArrayList<>(Arrays.asList(
+			new Item("101", LocalDateTime.now()),
+			new Item("102", LocalDateTime.now()),
+			new Item("103", LocalDateTime.now()),			
+			));
+
+	public List<Topic> getItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

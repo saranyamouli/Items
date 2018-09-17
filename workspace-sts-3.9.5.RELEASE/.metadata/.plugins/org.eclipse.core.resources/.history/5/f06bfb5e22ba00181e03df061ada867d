@@ -1,0 +1,51 @@
+package io.javabrains.springbootstarter.items;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import java.time.temporal.ChronoUnit;
+
+@Service
+public class ItemsService {
+	
+	List<Item> items =  new ArrayList<>(Arrays.asList(
+			new Item("101", LocalDateTime.now()),
+			new Item("102", LocalDateTime.now()),
+			new Item("103", LocalDateTime.now())		
+			));
+
+	public List<Item> getItems() {
+		// Get Items in the last 2 seconds.
+		List<Item> myList = new ArrayList<>();
+		for (Item item : items) {			
+			 long diffInSeconds = java.time.Duration.between(LocalDateTime.now(), item.getDateTime()).getSeconds();
+			 if(diffInSeconds < 2) {
+				 myList.add(item);
+			 }
+		}
+		
+		
+		List<Item> sortedItems = items.stream()
+				  .sorted(Comparator.comparing(Item::getDateTime).reversed())
+				  .collect(Collectors.toList());
+
+		int count = myList.size();
+		int sortCount = sortedItems.size();
+		
+		
+		return items;
+	}
+
+	public void addItem(Item item) {
+		items.add(item);
+		
+	}
+
+}

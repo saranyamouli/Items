@@ -1,0 +1,17 @@
+package io.javabrains.springbootstarter.items;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import io.javabrains.springbootstarter.topic.Topic;
+
+@Service
+public class ItemsService {
+
+	public List<Topic> getItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

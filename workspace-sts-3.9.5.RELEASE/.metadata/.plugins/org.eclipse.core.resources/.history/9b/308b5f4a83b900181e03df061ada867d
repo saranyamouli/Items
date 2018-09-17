@@ -1,0 +1,29 @@
+package io.javabrains.springbootstarter.items;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import io.javabrains.springbootstarter.topic.Topic;
+import io.javabrains.springbootstarter.topic.TopicService;
+
+public class ItemsController {
+
+	@Autowired
+	private ItemsService itemsService;
+
+	@RequestMapping("/items")
+	public List<Item> getItems() {
+		return itemsService.getItems();
+				
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/items")
+	public void addItem(@RequestBody Topic topic) {
+		itemsService.addItem(topic);
+	}
+}

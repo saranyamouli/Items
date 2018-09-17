@@ -1,0 +1,30 @@
+package io.javabrains.springbootstarter.items;
+
+public class Item {
+
+	private String id;
+	private String str;
+	public Item() {
+		
+	}
+	public Item(String id, String str) {
+		super();
+		this.id = id;
+		this.str = str;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
+	public String getDateTime() {
+		return str;
+	}
+	public void setDateTime(String str) {
+		this.str = str;
+	}
+
+}
